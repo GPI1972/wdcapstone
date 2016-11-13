@@ -1,0 +1,13 @@
+<!-- The Archivist -->
+<!-- Template for Landing Page -->
+<template name="landing">
+    <div class="container">
+		<div class="jumbotron">
+			<h1 style="text-align:center;">The Archivist</h1>
+			<hr>
+			{{#if isLogged}}
+				<p style="text-align:center;"><a class="btn btn-lg" href="search" role="button">Click to access archive</a></p>
+			{{/if}}
+		</div>
+	</div>
+</template>

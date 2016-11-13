@@ -1,0 +1,68 @@
+<!-- The Archivist -->
+<!-- Template for Navigation Bar -->
+<template name="header">
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+		  
+			<!-- Collapsed nav bar -->
+			<div class="navbar-header">
+				<button
+					type="button"
+					class="navbar-toggle collapsed"
+					data-toggle="collapse"
+					data-target="#main_navbar"
+					aria-expanded="false">Menu</button>
+					
+					<a href="/" class="navbar-brand">
+						The Archivist
+					</a>
+			</div><!-- End Collapsed nav bar -->
+		  
+		    <!-- Un-collapsed nav bar -->
+			<div class="collapse navbar-collapse" id="main_navbar">
+				<ul class="nav navbar-nav navbar-right">
+					<!-- {{> loginButtons align="right"}} -->
+					{{> loginButtons}}
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="js-show-about" href="#">About</a>
+					</li>
+				</ul>
+
+			</div><!-- End Un-collapsed nav bar -->
+		</div>
+		
+		<!-- Modal with help & instructions -->
+		<div id="aboutModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">About this tool</h4>
+				  </div>
+				  <div class="modal-body">
+					<p>This app allows users to browse through a list of projects to identify the location of archived documents associated to projects, or alternatively to search for documents by using key words.
+					</p>
+					<p>Simple users can only browse and search for documents.</p>
+					<p>Administrators can also create new projects and data entries in the archive.</p>
+					<hr>
+					<p>For testing simple user functionality, create an account and log in.</p>
+					<p>For testing administrator functionality, please log in using the following credentials:</p>
+					<p>email: admin@test.com</p>
+					<p>password: admin1234</p>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				  </div>
+				</div>
+
+			</div>
+		</div>
+		
+	</div>
+	
+</template>

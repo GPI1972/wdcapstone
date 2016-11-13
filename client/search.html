@@ -1,0 +1,28 @@
+<!-- The Archivist -->
+<!-- Search Template -->
+<template name="search">
+	<div class="container">
+		<div class="page-header clearfix">
+			<h4 class="pull-left">Documents</h4>
+			<div class="pull-right">
+				<input type="text" name="search" class="form-control" width="250px" placeholder="Find documents...">
+			</div>
+		</div>
+
+		<ul class="list-group">
+		{{#if searching}}
+			{{> loading}}
+		{{else}}
+			{{#each documents}}
+				<li class="list-group-item clearfix">
+					<p><b>{{jobno}}: {{doctitle}}</b></p>
+					<p>Document Ref.: <i>{{docref}}</i> / Category: <i>{{doctype}}</i> / Date Issued: <i>{{docdate}}</i> / Author: <i>{{docauthor}}</i></p>
+					<p>Document location: <i>{{doclocation}}</i></p>
+				</li>
+			{{else}}
+				<p class="alert alert-warning">No matches found for "<i>{{query}}</i>".</p>
+			{{/each}}
+		{{/if}}
+		</ul>
+	</div>
+</template>
