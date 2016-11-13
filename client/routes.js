@@ -13,3 +13,6 @@ Router.route('/search', function () {
   this.render('search');
 });
 
+Router.route('/projects', function () {
+  this.render('projects');
+});

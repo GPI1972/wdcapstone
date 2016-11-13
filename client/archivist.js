@@ -8,10 +8,16 @@
 
 
 //////
+// Subscriptions
+//////
+Meteor.subscribe("projects");
+
+
+//////
 // Template Helpers
 //////
 
-Template.landing.helpers({
+Template.header.helpers({
 	// check that a user is logged in
 	isLogged:function(){
 		var curr_user = Meteor.userId();
@@ -20,6 +26,12 @@ Template.landing.helpers({
 			return true;
 		}
 		return false;
+	},
+});
+
+Template.projects.helpers({
+	projects:function(){
+		return Projects.find({}, {sort: {jobno: -1}});
 	},
 });
 
@@ -35,3 +47,14 @@ Template.header.events({
 	}
 });
 
+
+//////
+// Misc Functions
+//////
+
+Tracker.autorun(function () {
+  var userId = Meteor.userId();
+  if (!userId) {
+    Router.go('/');  // go 'home' on logout
+  }
+});

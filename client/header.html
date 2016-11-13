@@ -20,17 +20,38 @@
 		  
 		    <!-- Un-collapsed nav bar -->
 			<div class="collapse navbar-collapse" id="main_navbar">
+				
+				<ul class="nav navbar-nav navbar-left">
+					<li>
+						<a class="js-show-about" href="#">About</a>
+					</li>
+					
+					<!-- if user is logged in, show menu buttons for normal user -->
+					{{#if isLogged}}
+					<li>
+						<a href="projects">Projects</a>
+					</li>
+					<li>
+						<a href="search">Search Docs</a>
+					</li>
+					{{/if}}
+					
+					<!-- if admin is logged in, show additional buttons for admin -->
+					{{#if isInRole 'superAdmin'}}
+					<li>
+						<a href="#">New Project</a>
+					</li>
+					<li>
+						<a href="#">New Document</a>
+					</li>
+					{{/if}}
+				</ul>
+				
 				<ul class="nav navbar-nav navbar-right">
 					<!-- {{> loginButtons align="right"}} -->
 					{{> loginButtons}}
 				</ul>
 				
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="js-show-about" href="#">About</a>
-					</li>
-				</ul>
-
 			</div><!-- End Un-collapsed nav bar -->
 		</div>
 		

@@ -2,27 +2,32 @@
 <!-- Search Template -->
 <template name="search">
 	<div class="container">
-		<div class="page-header clearfix">
-			<h4 class="pull-left">Documents</h4>
-			<div class="pull-right">
-				<input type="text" name="search" class="form-control" width="250px" placeholder="Find documents...">
+		<div class="row">
+			<div class="col-xs-12 col-md-4">
+				<h4 class="pull-left">Search Documents</h4>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<input type="text" name="search" class="form-control" width="200px" placeholder="Input keywords...">
 			</div>
 		</div>
-
-		<ul class="list-group">
+		
+		<hr>
+		
 		{{#if searching}}
 			{{> loading}}
 		{{else}}
 			{{#each documents}}
-				<li class="list-group-item clearfix">
+				<div class="row list-group-item">
 					<p><b>{{jobno}}: {{doctitle}}</b></p>
 					<p>Document Ref.: <i>{{docref}}</i> / Category: <i>{{doctype}}</i> / Date Issued: <i>{{docdate}}</i> / Author: <i>{{docauthor}}</i></p>
 					<p>Document location: <i>{{doclocation}}</i></p>
-				</li>
+				</div>
 			{{else}}
-				<p class="alert alert-warning">No matches found for "<i>{{query}}</i>".</p>
+				<div class="row">
+					<p class="alert alert-warning">No matches found for "<i>{{query}}</i>".</p>
+				</div>
 			{{/each}}
 		{{/if}}
-		</ul>
+
 	</div>
 </template>

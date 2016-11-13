@@ -23,6 +23,34 @@ Meteor.startup(() => {
 		
 		
 		// Creating dummy set of data for testing purposes
+		if (!Projects.findOne()){
+			console.log("No projects found yet. Creating starter data.");
+			Projects.insert({
+				jobno: "2010001",
+				jobname: "Hydrological Study",
+				jobmanager: "Tom",
+				jobcreated: "2010"
+			});
+			Projects.insert({
+				jobno: "2011005",
+				jobname: "Infrastructure Works",
+				jobmanager: "Michael",
+				jobcreated: "2011"
+			});
+			Projects.insert({
+				jobno: "2012023",
+				jobname: "New Building",
+				jobmanager: "Tom",
+				jobcreated: "2012"
+			});
+			Projects.insert({
+				jobno: "2013009",
+				jobname: "Env Impact Assessment",
+				jobmanager: "Elle",
+				jobcreated: "2013"
+			});
+		}
+	
 		console.log("No documents found yet. Creating starter data.");
 		Documents.insert({
 			jobno: "2010001",
@@ -105,6 +133,17 @@ Meteor.startup(() => {
 		});
 	}
 });
+
+
+//////
+// Publications
+//////
+
+// publish set of projects
+Meteor.publish("projects", function(){
+	return Projects.find();
+})
+
 
 Meteor.publish( 'documents', function( search ) {
   check( search, Match.OneOf( String, null, undefined ) );

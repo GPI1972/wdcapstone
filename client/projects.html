@@ -1,0 +1,22 @@
+<!-- The Archivist -->
+<!-- Template for Projects' List -->
+<template name="projects">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h4 class="pull-left">Archived Project List</h4>
+			</div>
+		</div>
+		<hr>
+		
+		{{#each projects}}
+			<div class="row list-group-item">
+				<!-- <a href="#" class="js-jobno">Project Number: <i>{{jobno}}</i></a> -->
+				<p><b>Project Number: <i>{{jobno}}</i></b></p>
+				<p>Project Title: <i>{{jobname}}</i></p>
+				<p>Project Manager: <i>{{jobmanager}}</i></p>
+				<p>Date: <i>{{jobcreated}}</i></p>
+			</div>
+		{{/each}}
+	</div>
+</template>
