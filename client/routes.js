@@ -16,3 +16,7 @@ Router.route('/search', function () {
 Router.route('/projects', function () {
   this.render('projects');
 });
+
+Router.route('/newproject', function () {
+  this.render('newproject');
+});
