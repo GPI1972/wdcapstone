@@ -20,3 +20,7 @@ Router.route('/projects', function () {
 Router.route('/newproject', function () {
   this.render('newproject');
 });
+
+Router.route('/newdoc', function () {
+  this.render('newdoc');
+});

@@ -7,8 +7,8 @@ Meteor.methods({
 		return Projects.insert(proj);
 	},
 	
-	// Method to update the chat
-	//addNewDoc:function(doc){
-	//	return Documents.insert(doc);
-	//},
+	// Method to add a document
+	addNewDoc:function(doc){
+		return Documents.insert(doc);
+	},
 })

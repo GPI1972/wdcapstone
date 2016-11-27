@@ -1,0 +1,56 @@
+<!-- The Archivist -->
+<!-- Template for new document -->
+<template name="newdoc">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h4 class="pull-left">Add New Document</h4>
+			</div>
+		</div>
+		<hr>
+		
+
+		<form class="js-new-doc-panel">
+			<div class="form-group">
+				<label for="selected_job">Job Details</label>
+				<select class="form-control" id="selected_j">
+					{{#each projects}}
+						<option class="form-control js-select-job">{{jobno}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="new_doc_ref">Document Reference</label>
+				<input type="text" class="form-control" id="new_doc_ref" placeholder="Enter document reference">
+			</div>
+			<div class="form-group">
+				<label for="new_doc_type">Document Type</label>
+				<!--
+				<input type="text" class="form-control" id="new_doc_type" placeholder="Enter type of document">
+				-->
+				<select class="form-control" id="selected_type">
+					<option class="form-control">drawing</option>
+					<option class="form-control">report</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="new_doc_title">Document Title</label>
+				<input type="text" class="form-control" id="new_doc_title" placeholder="Enter document title">
+			</div>
+			<div class="form-group">
+				<label for="new_doc_author">Document Author</label>
+				<input type="text" class="form-control" id="new_doc_author" placeholder="Enter document author">
+			</div>
+			<div class="form-group">
+				<label for="new_doc_date">Document Date</label>
+				<input type="text" class="form-control" id="new_doc_date" placeholder="Enter document date">
+			</div>
+			<div class="form-group">
+				<label for="new_doc_location">Document Location</label>
+				<input type="text" class="form-control" id="new_doc_location" placeholder="Enter document location">
+			</div>
+
+			<button type="submit" class="btn btn-default js-doc-panel">Submit New Document</button>
+		</form>
+	</div>
+</template>
