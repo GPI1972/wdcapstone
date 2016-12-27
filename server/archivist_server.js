@@ -11,7 +11,7 @@ Meteor.startup(() => {
 		if (!Meteor.users.findOne()){
 			var email = "admin@test.com";
 			var username = "Admin";
-			console.log("Creating admin user.");
+			//console.log("Creating admin user.");
 			Meteor.users.insert({profile:{username:username},
 			emails:[{address:email}],
 			services:{ password:{"bcrypt":"$2a$10$YG4VhAFnNOy6Cj2o4xHfDODfYps8mv0H283jsiIJIGF6imKKZ8xYm"}}});
@@ -24,11 +24,17 @@ Meteor.startup(() => {
 		
 		// Creating dummy set of data for testing purposes
 		if (!Projects.findOne()){
-			console.log("No projects found yet. Creating starter data.");
+			//console.log("No projects found yet. Creating starter data.");
 			Projects.insert({
 				jobno: "2010001",
 				jobname: "Hydrological Study",
 				jobmanager: "Tom",
+				jobcreated: "2010"
+			});
+			Projects.insert({
+				jobno: "2010002",
+				jobname: "Residential Development",
+				jobmanager: "Dick",
 				jobcreated: "2010"
 			});
 			Projects.insert({
@@ -49,9 +55,15 @@ Meteor.startup(() => {
 				jobmanager: "Elle",
 				jobcreated: "2013"
 			});
+			Projects.insert({
+				jobno: "2015001",
+				jobname: "Survey Old Factory Site",
+				jobmanager: "Elle",
+				jobcreated: "2015"
+			});
 		}
 	
-		console.log("No documents found yet. Creating starter data.");
+		//console.log("No documents found yet. Creating starter data.");
 		Documents.insert({
 			jobno: "2010001",
 			docref: "repsw01",
@@ -93,6 +105,26 @@ Meteor.startup(() => {
 		});
 		
 		Documents.insert({
+			jobno: "2010002",
+			docref: "CW-001",
+			doctype: "drawing",
+			doctitle: "Storm Water Layout",
+			docdate: "05 June 2010",
+			docauthor: "Harry",
+			doclocation: "x:/archived projects/2010/2010002/drawings/"
+		});
+		
+		Documents.insert({
+			jobno: "2010002",
+			docref: "repdb01-002",
+			doctype: "report",
+			doctitle: "Services - Design Brief",
+			docdate: "06 August 2010",
+			docauthor: "Dick",
+			doclocation: "x:/archived projects/2010/2010002/reports/"
+		});
+		
+		Documents.insert({
 			jobno: "2011005",
 			docref: "repdb01",
 			doctype: "report",
@@ -131,6 +163,26 @@ Meteor.startup(() => {
 			docauthor: "Elle",
 			doclocation: "x:/archived projects/2011/2013009/reports/eia/"
 		});
+		
+		Documents.insert({
+			jobno: "2015001",
+			docref: "CX-001",
+			doctype: "drawing",
+			doctitle: "General Site Plan",
+			docdate: "16 October 2013",
+			docauthor: "John",
+			doclocation: "x:/archived projects/2015/2015001/drawings/"
+		});
+		
+		Documents.insert({
+			jobno: "2015001",
+			docref: "CX-002",
+			doctype: "drawing",
+			doctitle: "Typical Cross-Sections",
+			docdate: "16 October 2013",
+			docauthor: "John",
+			doclocation: "x:/archived projects/2015/2015001/drawings/"
+		});
 	}
 });
 
@@ -143,7 +195,6 @@ Meteor.startup(() => {
 Meteor.publish("projects", function(){
 	return Projects.find();
 })
-
 
 Meteor.publish( 'documents', function( search ) {
   check( search, Match.OneOf( String, null, undefined ) );

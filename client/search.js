@@ -11,9 +11,9 @@ Template.search.onCreated( () => {
 
   template.searchQuery = new ReactiveVar();
   template.searching   = new ReactiveVar( false );
-
+  
   template.autorun( () => {
-    template.subscribe( 'documents', template.searchQuery.get(), () => {
+	template.subscribe( 'documents', template.searchQuery.get(), () => {
       setTimeout( () => {
         template.searching.set( false );
       }, 300 );
@@ -37,7 +37,8 @@ Template.search.helpers({
     if ( documents ) {
       return documents;
     }
-  }
+  },
+
 });
 
 //////

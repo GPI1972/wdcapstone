@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<h4 class="pull-left">Add New Document</h4>
+				<h4 class="pull-left text-primary">Add New Document</h4>
 			</div>
 		</div>
 		<hr>
@@ -12,7 +12,7 @@
 
 		<form class="js-new-doc-panel">
 			<div class="form-group">
-				<label for="selected_job">Job Details</label>
+				<label for="selected_job">Job Number</label>
 				<select class="form-control" id="selected_j">
 					{{#each projects}}
 						<option class="form-control js-select-job">{{jobno}}</option>
@@ -50,7 +50,8 @@
 				<input type="text" class="form-control" id="new_doc_location" placeholder="Enter document location">
 			</div>
 
-			<button type="submit" class="btn btn-default js-doc-panel">Submit New Document</button>
+			<button type="submit" class="btn btn-success js-doc-panel">Submit New Document</button>
 		</form>
+		
 	</div>
 </template>

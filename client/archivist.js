@@ -11,6 +11,7 @@
 // Subscriptions
 //////
 Meteor.subscribe("projects");
+//Meteor.subscribe("documents");
 
 
 //////
@@ -51,7 +52,7 @@ Template.header.events({
 	// show help/instructions
 	"click .js-show-about":function(){
 		$("#aboutModal").modal("show");		
-	}
+	},
 });
 
 Template.newproject.events({
